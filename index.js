@@ -44,7 +44,6 @@ const game = () => {
 
   if (round === 'Computer chose scissors. User wins' || round === 'Computer chose rock. User wins' || round === 'Computer chose paper. User wins') {
     wins++;
-    // console.log(wins);
   } else if (round === 'Computer chose paper. Computer wins' || round === 'Computer chose scissors. Computer wins' || round === 'Computer chose rock. Computer wins') {
     loses++;
   }
