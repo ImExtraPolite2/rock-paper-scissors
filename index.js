@@ -49,17 +49,16 @@ const playGame = (playerSelection, computerSelection) => {
 const game = () => {
   let round = playGame(getPlayerChoice(), getComputerChoice());
 
-
-  // console.log(round);
-
-  if (round === 'Computer chose scissors. User wins' || round === 'Computer chose rock. User wins' || round === 'Computer chose paper. User wins') {
-    wins++;
-  } else if (round === 'Computer chose paper. Computer wins' || round === 'Computer chose scissors. Computer wins' || round === 'Computer chose rock. Computer wins') {
-    loses++;
-  }
-
-  if (wins < 6 || loses < 6) {
-    console.log(round);
+  if (wins < 5 && loses < 5) {
+    if (round === 'Computer chose scissors. User wins' || round === 'Computer chose rock. User wins' || round === 'Computer chose paper. User wins') {
+      wins++;
+      console.log(round);
+    } else if (round === 'Computer chose paper. Computer wins' || round === 'Computer chose scissors. Computer wins' || round === 'Computer chose rock. Computer wins') {
+      loses++;
+      console.log(round);
+    } else {
+      console.log(round);
+    }
   }
 
   if (wins === 5) {
@@ -67,7 +66,6 @@ const game = () => {
   } else if (loses === 5) {
     console.log('computer wins the game');
   }
-
 }
 
 let wins = 0;
@@ -76,22 +74,14 @@ const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
-// if (wins < 5 || loses < 5) {
-  rock.addEventListener('click', () => {
-    game();
-    console.log(wins);
-    console.log(loses);
-  });
-  
-  paper.addEventListener('click', () => {
-    game();
-    console.log(wins);
-    console.log(loses);
-  });
-  
-  scissors.addEventListener('click', () => {
-    game();
-    console.log(wins);
-    console.log(loses);
-  });
-// }
+rock.addEventListener('click', () => {
+  game();
+});
+
+paper.addEventListener('click', () => {
+  game();
+});
+
+scissors.addEventListener('click', () => {
+  game();
+});
