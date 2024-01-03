@@ -48,23 +48,28 @@ const playGame = (playerSelection, computerSelection) => {
 
 const game = () => {
   let round = playGame(getPlayerChoice(), getComputerChoice());
+  const whoWon = document.querySelector('.who-won');
+  const winNum = document.querySelector('.win-num');
+  const loseNum = document.querySelector('.lose-num');
 
   if (wins < 5 && loses < 5) {
     if (round === 'Computer chose scissors. User wins' || round === 'Computer chose rock. User wins' || round === 'Computer chose paper. User wins') {
       wins++;
-      console.log(round);
+      winNum.textContent = wins;
+      whoWon.textContent = round;
     } else if (round === 'Computer chose paper. Computer wins' || round === 'Computer chose scissors. Computer wins' || round === 'Computer chose rock. Computer wins') {
       loses++;
-      console.log(round);
+      loseNum.textContent = loses;
+      whoWon.textContent = round;
     } else {
-      console.log(round);
+      whoWon.textContent = round;
     }
   }
 
   if (wins === 5) {
-    console.log('user wins the game');
+    whoWon.textContent = 'user wins the game';
   } else if (loses === 5) {
-    console.log('computer wins the game');
+    whoWon.textContent = 'computer wins the game';
   }
 }
 
